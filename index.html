@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklify - Find Your Perfect Stay</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Internal CSS -->
+    <style>
+        .welcome-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #4a86e8 0%, #4a86e8 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4a86e8;
+        }
+        
+        /* Unique Properties Section */
+        .unique-properties-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            padding-left: 2rem;
+        }
+        
+        .unique-properties-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        /* Section spacing from left border */
+        section h2 {
+            padding-left: 2rem;
+        }
+        
+        section > .feature-grid {
+            padding-left: 2rem;
+        }
+        
+        .unique-properties-section > p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .properties-carousel-wrapper {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+        
+        .properties-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #ccc transparent;
+        }
+        
+        .properties-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .properties-carousel::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .properties-carousel::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .properties-carousel::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        .property-card {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .property-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .property-favorite {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        
+        .property-favorite:hover {
+            background: white;
+        }
+        
+        .property-details {
+            padding: 1rem;
+        }
+        
+        .property-type-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-stars {
+            color: #ffc107;
+        }
+        
+        .property-genius-badge {
+            background: #003580;
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .property-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+        
+        .property-location {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+        
+        .property-rating-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .property-rating-badge {
+            background: #003580;
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .property-rating-text {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .property-review-count {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+            font-size: 1.5rem;
+            color: #333;
+            transition: background 0.3s;
+        }
+        
+        .carousel-arrow:hover {
+            background: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .property-card {
+                flex: 0 0 280px;
+            }
+            
+            .carousel-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/booklify.png" alt="Booklify Logo" class="logo-image" style="height: 48px; width: auto; margin-right: 0.5rem;">
+                <span>Booklify</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="header-link">Home</a></li>
+                    <li><a href="hotels.html" class="header-link">Hotels</a></li>
+                    <li><a href="booking.html" class="header-button">My Booking</a></li>
+                    <li><a href="about.html" class="header-link">About</a></li>
+                    <li><a href="contact.html" class="header-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="hero">
+            <h1>Find Your Perfect Stay</h1>
+            <p style="font-size: 1.5rem; margin-top: 1rem;">Discover amazing hotels and book your dream vacation today</p>
+        </div>
+
+        <div class="container">
+            <div class="main-content">
+                <section class="welcome-section">
+                    <h2>Welcome to Booklify</h2>
+                    <p>Your trusted partner for finding the best hotel accommodations worldwide. We offer competitive prices, excellent customer service, and a wide selection of hotels to suit every budget and preference.</p>
+                </section>
+
+                <section>
+                    <h2>Why Choose Us?</h2>
+                    <div class="feature-grid">
+                        <div class="card">
+                            <h3>Best Prices</h3>
+                            <p>We guarantee the best prices on all our hotel bookings. Price match available!</p>
+                        </div>
+                        <div class="card">
+                            <h3>Secure Booking</h3>
+                            <p>Your personal information and payment details are protected with industry-standard encryption.</p>
+                        </div>
+                        <div class="card">
+                            <h3>24/7 Support</h3>
+                            <p>Our customer support team is available around the clock to assist you with any queries.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Verified Reviews</h3>
+                            <p>Read authentic reviews from verified guests to make informed decisions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="unique-properties-section">
+                    <h2>Stay at our top unique properties</h2>
+                    <p>From castles and villas to boats and igloos, we have it all.</p>
+                    <div class="properties-carousel-wrapper">
+                        <div class="properties-carousel">
+                            <!-- Property 1: Salalah Rotana Resort -->
+                            <div class="property-card">
+                                <div class="property-image-wrapper">
+                                    <img src="images/hotal1.png" alt="Salalah Rotana Resort" class="property-image">
+                                    <div class="property-favorite">♡</div>
+                                </div>
+                                <div class="property-details">
+                                    <div class="property-type-rating">
+                                        <span>Hotel</span>
+                                        <span class="property-stars">★</span>
+                                    </div>
+                                    <div class="property-name">Salalah Rotana Resort</div>
+                                    <div class="property-location">Salalah, Oman</div>
+                                    <div class="property-rating-section">
+                                        <span class="property-rating-badge">8.2</span>
+                                        <span class="property-rating-text">Very Good</span>
+                                        <span class="property-review-count">732 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Property 2: Anantara Al Jabal Al Akhdar Resort -->
+                            <div class="property-card">
+                                <div class="property-image-wrapper">
+                                    <img src="images/hotal2.png" alt="Anantara Al Jabal Al Akhdar Resort" class="property-image">
+                                    <div class="property-favorite">♡</div>
+                                </div>
+                                <div class="property-details">
+                                    <div class="property-type-rating">
+                                        <span>Hotel</span>
+                                        <span class="property-stars">★★★★★</span>
+                                        <span class="property-genius-badge">Genius</span>
+                                    </div>
+                                    <div class="property-name">Anantara Al Jabal Al Akhdar Resort</div>
+                                    <div class="property-location">Nizwa, Oman</div>
+                                    <div class="property-rating-section">
+                                        <span class="property-rating-badge">8.9</span>
+                                        <span class="property-rating-text">Excellent</span>
+                                        <span class="property-review-count">233 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Property 3: Al Bustan Palace -->
+                            <div class="property-card">
+                                <div class="property-image-wrapper">
+                                    <img src="images/hotal3.png" alt="Al Bustan Palace, A Ritz-Carlton Hotel" class="property-image">
+                                    <div class="property-favorite">♡</div>
+                                </div>
+                                <div class="property-details">
+                                    <div class="property-type-rating">
+                                        <span>Resort</span>
+                                        <span class="property-stars">★★★★★</span>
+                                    </div>
+                                    <div class="property-name">Al Bustan Palace, A Ritz-Carlton Hotel</div>
+                                    <div class="property-location">Muscat, Oman</div>
+                                    <div class="property-rating-section">
+                                        <span class="property-rating-badge">9.2</span>
+                                        <span class="property-rating-text">Wonderful</span>
+                                        <span class="property-review-count">1,720 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Property 4: The Chedi Muscat -->
+                            <div class="property-card">
+                                <div class="property-image-wrapper">
+                                    <img src="images/hotal4.png" alt="The Chedi Muscat" class="property-image">
+                                    <div class="property-favorite">♡</div>
+                                </div>
+                                <div class="property-details">
+                                    <div class="property-type-rating">
+                                        <span>Resort</span>
+                                        <span class="property-stars">★★★★★</span>
+                                        <span class="property-genius-badge">Genius</span>
+                                    </div>
+                                    <div class="property-name">The Chedi Muscat</div>
+                                    <div class="property-location">Muscat, Oman</div>
+                                    <div class="property-rating-section">
+                                        <span class="property-rating-badge">9.3</span>
+                                        <span class="property-rating-text">Wonderful</span>
+                                        <span class="property-review-count">1,173 reviews</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-arrow">→</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Our Statistics</h2>
+                    <div class="feature-grid">
+                        <div class="stat-box">
+                            <div class="stat-number">250+</div>
+                            <p>Hotels in Oman</p>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">45K+</div>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">15+</div>
+                            <p>Cities in Oman</p>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">4.6★</div>
+                            <p>Average Rating</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Popular Destinations in Oman</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Destination</th>
+                                <th colspan="2">Location Details</th>
+                                <th rowspan="2">Best Time to Visit</th>
+                                <th colspan="2">Accommodation</th>
+                                <th rowspan="2">Average Price (OMR/night)</th>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <th>Region</th>
+                                <th>Hotels</th>
+                                <th>Resorts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Muscat</strong></td>
+                                <td>Muscat</td>
+                                <td>Capital</td>
+                                <td>Oct - Apr</td>
+                                <td>45+</td>
+                                <td>12+</td>
+                                <td>80-200</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Salalah</strong></td>
+                                <td>Salalah</td>
+                                <td>Dhofar</td>
+                                <td>Jun - Sep (Khareef)</td>
+                                <td>25+</td>
+                                <td>8+</td>
+                                <td>50-150</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nizwa</strong></td>
+                                <td>Nizwa</td>
+                                <td>Ad Dakhiliyah</td>
+                                <td>Oct - Mar</td>
+                                <td>15+</td>
+                                <td>5+</td>
+                                <td>60-180</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sur</strong></td>
+                                <td>Sur</td>
+                                <td>Ash Sharqiyah</td>
+                                <td>Nov - Feb</td>
+                                <td>10+</td>
+                                <td>3+</td>
+                                <td>40-120</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sohar</strong></td>
+                                <td>Sohar</td>
+                                <td>Al Batinah</td>
+                                <td>Oct - Apr</td>
+                                <td>12+</td>
+                                <td>2+</td>
+                                <td>45-100</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7" style="text-align: center; font-weight: bold; background-color: #f0f0f0;">
+                                    Discover the beauty of Oman across these amazing destinations. Prices vary by season and hotel category.
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 booklify.com. All rights reserved.</p>
+            <p>Department of Computer Science, Sultan Qaboos University</p>
+            <p>COMP3700 - Introduction to Web Computing - Fall 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
+
