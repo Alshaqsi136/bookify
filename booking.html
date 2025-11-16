@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Hotel - Booklify</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Internal CSS -->
+    <style>
+        .booking-header {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #4a86e8 0%, #4a86e8 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/booklify.png" alt="Booklify Logo" class="logo-image" style="height: 48px; width: auto; margin-right: 0.5rem;">
+                <span>Booklify</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="header-link">Home</a></li>
+                    <li><a href="hotels.html" class="header-link">Hotels</a></li>
+                    <li><a href="booking.html" class="header-button">My Booking</a></li>
+                    <li><a href="about.html" class="header-link">About</a></li>
+                    <li><a href="contact.html" class="header-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="booking-header">
+                <h1>Book Your Perfect Stay</h1>
+                <p>Fill out the form below to make your reservation</p>
+            </div>
+
+            <div class="main-content">
+                <form action="https://httpbin.org/get" method="get">
+                    <fieldset>
+                        <legend>Hotel Selection</legend>
+                        
+                        <div class="form-group">
+                            <label for="destination" class="form-label">Destination/City *</label>
+                            <input type="text" id="destination" name="destination" class="form-input" required placeholder="Enter city or hotel name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hotel_type" class="form-label">Hotel Type</label>
+                            <select id="hotel_type" name="hotel_type">
+                                <option value="">Select hotel type</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="business">Business</option>
+                                <option value="budget">Budget</option>
+                                <option value="resort">Resort</option>
+                                <option value="boutique">Boutique</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Dates & Guests</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkin" class="form-label">Check-in Date *</label>
+                                <input type="date" id="checkin" name="checkin" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkout" class="form-label">Check-out Date *</label>
+                                <input type="date" id="checkout" name="checkout" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults" class="form-label">Number of Adults *</label>
+                                <input type="number" id="adults" name="adults" class="form-input" min="1" max="10" value="2" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="children" class="form-label">Number of Children</label>
+                                <input type="number" id="children" name="children" class="form-input" min="0" max="10" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rooms" class="form-label">Number of Rooms *</label>
+                            <input type="number" id="rooms" name="rooms" class="form-input" min="1" max="5" value="1" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Guest Information</legend>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstname" class="form-label">First Name *</label>
+                                <input type="text" id="firstname" name="firstname" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastname" class="form-label">Last Name *</label>
+                                <input type="text" id="lastname" name="lastname" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guest_email" class="form-label">Email Address *</label>
+                                <input type="email" id="guest_email" name="guest_email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="guest_phone" class="form-label">Phone Number *</label>
+                                <input type="tel" id="guest_phone" name="guest_phone" class="form-input" required pattern="[0-9]{10,15}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="special_requests" class="form-label">Special Requests</label>
+                            <textarea id="special_requests" name="special_requests" rows="4" placeholder="Any special requests or preferences?"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Booking Confirmation Preference *</label>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                                <div>
+                                    <input type="radio" id="confirm_email" name="confirmation_method" value="email" required>
+                                    <label for="confirm_email" style="font-weight: normal; margin-left: 0.5rem;">Email Confirmation</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="confirm_sms" name="confirmation_method" value="sms">
+                                    <label for="confirm_sms" style="font-weight: normal; margin-left: 0.5rem;">SMS Confirmation</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="confirm_both" name="confirmation_method" value="both">
+                                    <label for="confirm_both" style="font-weight: normal; margin-left: 0.5rem;">Both Email and SMS</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Additional Services</legend>
+                        
+                        <div class="form-group">
+                            <label>Select additional services:</label>
+                            <div>
+                                <input type="checkbox" id="airport_pickup" name="services" value="airport_pickup">
+                                <label for="airport_pickup">Airport Pickup</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="breakfast" name="services" value="breakfast">
+                                <label for="breakfast">Breakfast Included</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="wifi" name="services" value="wifi">
+                                <label for="wifi">High-Speed WiFi</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="parking" name="services" value="parking">
+                                <label for="parking">Parking</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="spa" name="services" value="spa">
+                                <label for="spa">Spa Access</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment_method" class="form-label">Preferred Payment Method</label>
+                            <select id="payment_method" name="payment_method">
+                                <option value="credit_card">Credit Card</option>
+                                <option value="debit_card">Debit Card</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <input type="submit" value="Complete Booking" class="btn btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem;">
+                        <input type="reset" value="Reset Form" class="btn" style="background-color: #ccc; color: #333; margin-left: 1rem; padding: 1rem 2rem;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 booklify.com. All rights reserved.</p>
+            <p>Department of Computer Science, Sultan Qaboos University</p>
+            <p>COMP3700 - Introduction to Web Computing - Fall 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
+
