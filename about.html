@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Booklify</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .about-hero-section {
+            position: relative;
+            min-height: 60vh;
+            background: url('images/948.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .about-hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .about-hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .about-hero-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .about-content-section {
+            background: white;
+            padding: 4rem 3rem;
+        }
+        
+        .about-content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .about-text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about-section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .about-text strong {
+            color: #4a86e8;
+            font-weight: 600;
+        }
+        
+        .team-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .team-members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member-card {
+            text-align: center;
+        }
+        
+        .team-member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 4px solid #4a86e8;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .team-member-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-top: 0.5rem;
+        }
+        
+        .about-image-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .about-team-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+        
+        .toc-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-left: 4px solid #4a86e8;
+            border-radius: 5px;
+        }
+        
+        .toc-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .toc-list {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            color: #333;
+        }
+        
+        .toc-list li {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .toc-list a {
+            color: #4a86e8;
+            text-decoration: none;
+        }
+        
+        .toc-list a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 968px) {
+            .about-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/booklify.png" alt="Booklify Logo" class="logo-image" style="height: 48px; width: auto; margin-right: 0.5rem;">
+                <span>Booklify</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="header-link">Home</a></li>
+                    <li><a href="hotels.html" class="header-link">Hotels</a></li>
+                    <li><a href="booking.html" class="header-button">My Booking</a></li>
+                    <li><a href="about.html" class="header-link" style="color: #4a86e8; font-weight: 600;">About</a></li>
+                    <li><a href="contact.html" class="header-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero-section">
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">About Booklify</h1>
+                <p class="about-hero-subtitle">Your trusted partner for finding the perfect hotel accommodations across Oman. We connect travelers with exceptional stays, from luxury resorts to charming boutique hotels.</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="about-content-section">
+            <div class="about-content-wrapper">
+                <!-- Left Side: Text Content -->
+                <div class="about-text-content">
+                    <div>
+                        <h2 class="about-section-title">Team Members</h2>
+                        <div class="team-members-grid">
+                            <div class="team-member-card">
+                                <img src="images/person1.png" alt="Nasser Alshaqsi" class="team-member-image">
+                                <div class="team-member-name">Nasser Alshaqsi</div>
+                            </div>
+                            <div class="team-member-card">
+                                <img src="images/person2.png" alt="Fahad Al-Adawi" class="team-member-image">
+                                <div class="team-member-name">Fahad Al-Adawi</div>
+                            </div>
+                            <div class="team-member-card">
+                                <img src="images/person3.png" alt="Ghassan Al-Hosni" class="team-member-image">
+                                <div class="team-member-name">Ghassan Al-Hosni</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="overview">
+                        <h2 class="about-section-title">Our Story</h2>
+                        <p class="about-text">
+                            Booklify was founded with a simple mission: to make hotel booking effortless and enjoyable for travelers across Oman and beyond. What started as a vision to connect travelers with the perfect accommodations has grown into a trusted platform serving thousands of guests every year.
+                        </p>
+                        <p class="about-text">
+                            We understand that finding the right hotel can be overwhelming. That's why we've built Booklify to be more than just a booking platform—it's your trusted travel companion. We partner with the finest hotels and resorts across Oman, from luxury beachfront properties in Muscat to mountain retreats in Nizwa and the stunning resorts of Salalah.
+                        </p>
+                    </div>
+
+                    <div id="mission">
+                        <h2 class="about-section-title">Our Mission</h2>
+                        <p class="about-text">
+                            At Booklify, we're committed to providing exceptional service and value to every traveler. Our mission is built on three core principles:
+                        </p>
+                        <ol class="about-text" style="padding-left: 1.5rem; line-height: 2;">
+                            <li><strong>Transparency:</strong> We believe in honest pricing, real guest reviews, and clear information so you can make informed decisions.</li>
+                            <li><strong>Reliability:</strong> Every booking is backed by our commitment to secure transactions, instant confirmations, and 24/7 customer support.</li>
+                            <li><strong>Value:</strong> We negotiate the best rates with our partner hotels and pass the savings directly to you.</li>
+                        </ol>
+                    </div>
+
+                    <div id="audience">
+                        <h2 class="about-section-title">Who We Serve</h2>
+                        <p class="about-text">
+                            Booklify caters to a diverse community of travelers:
+                        </p>
+                        <ul class="about-text" style="padding-left: 1.5rem; line-height: 2;">
+                            <li><strong>Leisure Travelers:</strong> Families, couples, and solo adventurers exploring the beauty of Oman</li>
+                            <li><strong>Business Professionals:</strong> Corporate travelers seeking convenient, well-located accommodations</li>
+                            <li><strong>Event Attendees:</strong> Guests attending conferences, weddings, and special occasions</li>
+                            <li><strong>International Visitors:</strong> Tourists discovering Oman's rich culture and stunning landscapes</li>
+                        </ul>
+                        <p class="about-text">
+                            We also work closely with hotel partners across Oman, helping them reach more guests and manage their bookings efficiently. Our platform provides hotels with powerful tools to showcase their properties, manage availability, and grow their business.
+                        </p>
+                    </div>
+
+                    <div id="values">
+                        <h2 class="about-section-title">Why Choose Booklify</h2>
+                        <p class="about-text">
+                            <strong>Best Price Guarantee:</strong> We're confident we offer the best rates. If you find a lower price elsewhere, we'll match it.
+                        </p>
+                        <p class="about-text">
+                            <strong>Verified Reviews:</strong> Every review on our platform comes from verified guests who have actually stayed at the property. This ensures you get authentic, trustworthy information.
+                        </p>
+                        <p class="about-text">
+                            <strong>24/7 Support:</strong> Our customer service team is available around the clock to assist with bookings, changes, cancellations, or any questions you may have.
+                        </p>
+                        <p class="about-text">
+                            <strong>Secure Booking:</strong> Your personal and payment information is protected with industry-leading encryption and security measures.
+                        </p>
+                        <p class="about-text">
+                            <strong>Local Expertise:</strong> As an Oman-based company, we have deep knowledge of local hotels, destinations, and travel experiences. We're here to help you discover the best of what Oman has to offer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="about-image-side">
+                    <img src="images/callusimg.jpg" alt="Team Collaboration" class="about-team-image" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Table -->
+        <section class="about-content-section">
+            <div class="about-content-wrapper">
+                <div class="about-text-content">
+                    <h2 class="about-section-title">Our Services & Features</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Service Category</th>
+                                <th>Features</th>
+                                <th>Availability</th>
+                                <th>Support</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Hotel Booking</strong></td>
+                                <td>Real-time availability, instant confirmation, flexible dates</td>
+                                <td>24/7</td>
+                                <td>Email & Phone</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Price Comparison</strong></td>
+                                <td>Compare prices across multiple hotels, best price guarantee</td>
+                                <td>24/7</td>
+                                <td>Online Chat</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Support</strong></td>
+                                <td>Booking assistance, cancellation help, refund processing</td>
+                                <td>24/7</td>
+                                <td>Email, Phone, Chat</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Loyalty Program</strong></td>
+                                <td>Points system, discounts, exclusive deals, free nights</td>
+                                <td>Always Active</td>
+                                <td>Account Dashboard</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mobile App</strong></td>
+                                <td>iOS & Android apps, mobile booking, push notifications</td>
+                                <td>24/7</td>
+                                <td>In-App Support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 booklify.com. All rights reserved.</p>
+            <p>Department of Computer Science, Sultan Qaboos University</p>
+            <p>COMP3700 - Introduction to Web Computing - Fall 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
