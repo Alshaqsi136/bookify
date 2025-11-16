@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Booklify</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Internal CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .contact-page-wrapper {
+            position: relative;
+            min-height: 100vh;
+            background: url('images/948.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-page-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+        
+        .contact-content-box {
+            position: relative;
+            z-index: 1;
+            background: white;
+            margin: 0;
+            padding: 4rem 3rem;
+            margin-top: auto;
+            border-radius: 0;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            min-height: 65vh;
+        }
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+        
+        .contact-left {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-intro {
+            font-size: 1rem;
+            color: #1a1a2e;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-email-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .contact-email-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-email-link {
+            font-size: 1.1rem;
+            color: #4a86e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-email-link:hover {
+            text-decoration: underline;
+        }
+        
+        .social-section {
+            margin-top: 2rem;
+        }
+        
+        .social-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: #4a86e8;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-form-right {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-form-simple {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        
+        .form-field-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-field-group label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-field-group input,
+        .form-field-group textarea {
+            padding: 0.85rem;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .form-field-group input:focus,
+        .form-field-group textarea:focus {
+            outline: none;
+            border-color: #4a86e8;
+            border-width: 2px;
+        }
+        
+        .form-field-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: #4a86e8;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 0.5rem;
+        }
+        
+        .submit-button:hover {
+            background: #3d6fd6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 134, 232, 0.3);
+        }
+        
+        .required-asterisk {
+            color: #4a86e8;
+        }
+        
+        @media (max-width: 968px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-content-box {
+                padding: 3rem 2rem;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/booklify.png" alt="Booklify Logo" class="logo-image" style="height: 48px; width: auto; margin-right: 0.5rem;">
+                <span>Booklify</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="header-link">Home</a></li>
+                    <li><a href="hotels.html" class="header-link">Hotels</a></li>
+                    <li><a href="booking.html" class="header-button">My Booking</a></li>
+                    <li><a href="about.html" class="header-link">About</a></li>
+                    <li><a href="contact.html" class="header-link" style="color: #4a86e8; font-weight: 600;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-page-wrapper">
+            <div class="contact-content-box">
+                <div class="contact-layout">
+                    <!-- Left Side: Contact Info -->
+                    <div class="contact-left">
+                        <h1 class="contact-title">Contact Us</h1>
+                        <p class="contact-intro">Want to get in touch? We'd love to hear from you. Here's how you can reach us...</p>
+                        
+                        <div class="contact-email-section">
+                            <div class="contact-email-label">Our Email</div>
+                            <a href="mailto:contact@booklify.com" class="contact-email-link">contact@booklify.com</a>
+                        </div>
+                        
+                        <div class="social-section">
+                            <div class="social-label">Follow Us on our Social Media</div>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon" title="Twitter" style="background: #1DA1F2; color: white;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px; height: 20px; fill: white;">
+                                        <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-icon" title="LinkedIn" style="background: #0077B5; color: white;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 20px; height: 20px; fill: white;">
+                                        <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="social-icon" title="Discord" style="background: #5865F2; color: white;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width: 20px; height: 20px; fill: white;">
+                                        <path d="M537.6 226.6c4.1-10.7 6.5-22.4 6.5-34.6 0-62.1-50.1-112.6-111.7-112.6-9.8 0-19.2 1.3-28.1 3.7-18.2-32.8-50.1-58.2-87.4-72.4-1.3-.5-2.6-1-3.9-1.4-11.8-3.8-23.8-6.5-36.2-7.8-12.4-1.3-25-1.3-37.5 0-12.4 1.3-24.4 4-36.2 7.8-1.3.5-2.6.9-3.9 1.4-37.3 14.2-69.2 39.6-87.4 72.4-8.9-2.4-18.3-3.7-28.1-3.7C61.6 79.4 11.5 129.9 11.5 192c0 12.2 2.4 23.9 6.5 34.6C7.1 244.1 0 257.4 0 272v48c0 16.6 13.4 30 30 30h15.8c-1.1 5.2-1.8 10.5-1.8 16 0 35.3 28.7 64 64 64s64-28.7 64-64c0-5.5-.7-10.8-1.8-16h129.5c-1.1 5.2-1.8 10.5-1.8 16 0 35.3 28.7 64 64 64s64-28.7 64-64c0-5.5-.7-10.8-1.8-16H610c16.6 0 30-13.4 30-30V272c0-14.6-7.1-27.9-18.4-45.4zM192 224c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm256 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Contact Form -->
+                    <div class="contact-form-right">
+                        <form action="mailto:contact@booklify.com" method="post" enctype="text/plain" class="contact-form-simple">
+                            <div class="form-field-group">
+                                <label for="firstname">First Name <span class="required-asterisk">*</span></label>
+                                <input type="text" id="firstname" name="firstname" required>
+                            </div>
+                            
+                            <div class="form-field-group">
+                                <label for="lastname">Last Name <span class="required-asterisk">*</span></label>
+                                <input type="text" id="lastname" name="lastname" required>
+                            </div>
+                            
+                            <div class="form-field-group">
+                                <label for="email">Email <span class="required-asterisk">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-field-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{8,15}" placeholder="+968 XXXX XXXX">
+                            </div>
+                            
+                            <div class="form-field-group">
+                                <label for="subject">Subject <span class="required-asterisk">*</span></label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="booking">Booking Question</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="technical">Technical Support</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-field-group">
+                                <label for="message">Message <span class="required-asterisk">*</span></label>
+                                <textarea id="message" name="message" required rows="5"></textarea>
+                            </div>
+                            
+                            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                                <button type="submit" class="submit-button">Submit</button>
+                                <button type="reset" class="submit-button" style="background: #ccc; color: #333;">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 booklify.com. All rights reserved.</p>
+            <p>Department of Computer Science, Sultan Qaboos University</p>
+            <p>COMP3700 - Introduction to Web Computing - Fall 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
