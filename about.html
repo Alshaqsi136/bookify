@@ -4,322 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Booklify</title>
-    <!-- External CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Internal CSS -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        
-        .about-hero-section {
-            position: relative;
-            min-height: 60vh;
-            background: url('images/948.jpg') center/cover no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-        
-        .about-hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-        }
-        
-        .about-hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        
-        .about-hero-title {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .about-hero-subtitle {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .about-content-section {
-            background: white;
-            padding: 4rem 3rem;
-        }
-        
-        .about-content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        
-        .about-text-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .about-section-title {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-        }
-        
-        .about-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #333;
-        }
-        
-        .about-text strong {
-            color: #4a86e8;
-            font-weight: 600;
-        }
-        
-        .team-section {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid #e0e0e0;
-        }
-        
-        .team-members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .team-member-card {
-            text-align: center;
-        }
-        
-        .team-member-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem;
-            border: 4px solid #4a86e8;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .team-member-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a2e;
-            margin-top: 0.5rem;
-        }
-        
-        .about-image-side {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .about-team-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            object-fit: cover;
-        }
-        
-        .toc-section {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-left: 4px solid #4a86e8;
-            border-radius: 5px;
-        }
-        
-        .toc-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #1a1a2e;
-            margin-bottom: 1rem;
-        }
-        
-        .toc-list {
-            list-style: decimal;
-            padding-left: 1.5rem;
-            color: #333;
-        }
-        
-        .toc-list li {
-            margin: 0.5rem 0;
-            line-height: 1.6;
-        }
-        
-        .toc-list a {
-            color: #4a86e8;
-            text-decoration: none;
-        }
-        
-        .toc-list a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 968px) {
-            .about-content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .about-hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .about-hero-subtitle {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <img src="images/booklify.png" alt="Booklify Logo" class="logo-image" style="height: 48px; width: auto; margin-right: 0.5rem;">
-                <span>Booklify</span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/booklify.png" alt="Booklify Logo" class="me-2" style="height: 48px; width: auto;">
+                <span class="fw-bold text-primary">Booklify</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="header-link">Home</a></li>
-                    <li><a href="hotels.html" class="header-link">Hotels</a></li>
-                    <li><a href="booking.html" class="header-button">My Booking</a></li>
-                    <li><a href="about.html" class="header-link" style="color: #4a86e8; font-weight: 600;">About</a></li>
-                    <li><a href="contact.html" class="header-link">Contact</a></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary ms-2" href="booking.html">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="questionnaire.html">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculate.html">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="funpage.html">Fun Page</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section class="about-hero-section">
-            <div class="about-hero-content">
-                <h1 class="about-hero-title">About Booklify</h1>
-                <p class="about-hero-subtitle">Your trusted partner for finding the perfect hotel accommodations across Oman. We connect travelers with exceptional stays, from luxury resorts to charming boutique hotels.</p>
+        <section class="text-white text-center d-flex flex-column justify-content-center align-items-center position-relative" style="min-height: 60vh; background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/948.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="position-relative z-1 px-3">
+                <h1 class="display-2 fw-bold mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">About Booklify</h1>
+                <p class="lead fs-4" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Your trusted partner for finding the perfect hotel accommodations across Oman. We connect travelers with exceptional stays, from luxury resorts to charming boutique hotels.</p>
             </div>
         </section>
 
-        <!-- Content Section -->
-        <section class="about-content-section">
-            <div class="about-content-wrapper">
-                <!-- Left Side: Text Content -->
-                <div class="about-text-content">
-                    <div>
-                        <h2 class="about-section-title">Team Members</h2>
-                        <div class="team-members-grid">
-                            <div class="team-member-card">
-                                <img src="images/person1.png" alt="Nasser Alshaqsi" class="team-member-image">
-                                <div class="team-member-name">Nasser Alshaqsi</div>
+        <section class="bg-white py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-8">
+                        <div class="mb-5">
+                            <h2 class="display-6 fw-bold mb-4">Team Members</h2>
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <img src="images/person1.png" alt="Nasser Alshaqsi" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #4a86e8;">
+                                        <h5 class="fw-bold">Nasser Alshaqsi</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <img src="images/person2.png" alt="Fahad Al-Adawi" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #4a86e8;">
+                                        <h5 class="fw-bold">Fahad Al-Adawi</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <img src="images/person3.png" alt="Ghassan Al-Hosni" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #4a86e8;">
+                                        <h5 class="fw-bold">Ghassan Al-Hosni</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="team-member-card">
-                                <img src="images/person2.png" alt="Fahad Al-Adawi" class="team-member-image">
-                                <div class="team-member-name">Fahad Al-Adawi</div>
-                            </div>
-                            <div class="team-member-card">
-                                <img src="images/person3.png" alt="Ghassan Al-Hosni" class="team-member-image">
-                                <div class="team-member-name">Ghassan Al-Hosni</div>
-                            </div>
+                        </div>
+
+                        <div id="overview" class="mb-5">
+                            <h2 class="display-6 fw-bold mb-3">Our Story</h2>
+                            <p class="lead">Booklify was founded with a simple mission: to make hotel booking effortless and enjoyable for travelers across Oman and beyond. What started as a vision to connect travelers with the perfect accommodations has grown into a trusted platform serving thousands of guests every year.</p>
+                            <p>We understand that finding the right hotel can be overwhelming. That's why we've built Booklify to be more than just a booking platform—it's your trusted travel companion. We partner with the finest hotels and resorts across Oman, from luxury beachfront properties in Muscat to mountain retreats in Nizwa and the stunning resorts of Salalah.</p>
+                        </div>
+
+                        <div id="mission" class="mb-5">
+                            <h2 class="display-6 fw-bold mb-3">Our Mission</h2>
+                            <p class="lead">At Booklify, we're committed to providing exceptional service and value to every traveler. Our mission is built on three core principles:</p>
+                            <ol class="lead">
+                                <li class="mb-2"><strong class="text-primary">Transparency:</strong> We believe in honest pricing, real guest reviews, and clear information so you can make informed decisions.</li>
+                                <li class="mb-2"><strong class="text-primary">Reliability:</strong> Every booking is backed by our commitment to secure transactions, instant confirmations, and 24/7 customer support.</li>
+                                <li class="mb-2"><strong class="text-primary">Value:</strong> We negotiate the best rates with our partner hotels and pass the savings directly to you.</li>
+                            </ol>
+                        </div>
+
+                        <div id="audience" class="mb-5">
+                            <h2 class="display-6 fw-bold mb-3">Who We Serve</h2>
+                            <p class="lead">Booklify caters to a diverse community of travelers:</p>
+                            <ul class="lead">
+                                <li class="mb-2"><strong class="text-primary">Leisure Travelers:</strong> Families, couples, and solo adventurers exploring the beauty of Oman</li>
+                                <li class="mb-2"><strong class="text-primary">Business Professionals:</strong> Corporate travelers seeking convenient, well-located accommodations</li>
+                                <li class="mb-2"><strong class="text-primary">Event Attendees:</strong> Guests attending conferences, weddings, and special occasions</li>
+                                <li class="mb-2"><strong class="text-primary">International Visitors:</strong> Tourists discovering Oman's rich culture and stunning landscapes</li>
+                            </ul>
+                            <p>We also work closely with hotel partners across Oman, helping them reach more guests and manage their bookings efficiently. Our platform provides hotels with powerful tools to showcase their properties, manage availability, and grow their business.</p>
+                        </div>
+
+                        <div id="values">
+                            <h2 class="display-6 fw-bold mb-3">Why Choose Booklify</h2>
+                            <p><strong class="text-primary">Best Price Guarantee:</strong> We're confident we offer the best rates. If you find a lower price elsewhere, we'll match it.</p>
+                            <p><strong class="text-primary">Verified Reviews:</strong> Every review on our platform comes from verified guests who have actually stayed at the property. This ensures you get authentic, trustworthy information.</p>
+                            <p><strong class="text-primary">24/7 Support:</strong> Our customer service team is available around the clock to assist with bookings, changes, cancellations, or any questions you may have.</p>
+                            <p><strong class="text-primary">Secure Booking:</strong> Your personal and payment information is protected with industry-leading encryption and security measures.</p>
+                            <p><strong class="text-primary">Local Expertise:</strong> As an Oman-based company, we have deep knowledge of local hotels, destinations, and travel experiences. We're here to help you discover the best of what Oman has to offer.</p>
                         </div>
                     </div>
 
-                    <div id="overview">
-                        <h2 class="about-section-title">Our Story</h2>
-                        <p class="about-text">
-                            Booklify was founded with a simple mission: to make hotel booking effortless and enjoyable for travelers across Oman and beyond. What started as a vision to connect travelers with the perfect accommodations has grown into a trusted platform serving thousands of guests every year.
-                        </p>
-                        <p class="about-text">
-                            We understand that finding the right hotel can be overwhelming. That's why we've built Booklify to be more than just a booking platform—it's your trusted travel companion. We partner with the finest hotels and resorts across Oman, from luxury beachfront properties in Muscat to mountain retreats in Nizwa and the stunning resorts of Salalah.
-                        </p>
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <img src="images/callusimg.jpg" alt="Team Collaboration" class="img-fluid rounded shadow-lg">
+                        </div>
                     </div>
-
-                    <div id="mission">
-                        <h2 class="about-section-title">Our Mission</h2>
-                        <p class="about-text">
-                            At Booklify, we're committed to providing exceptional service and value to every traveler. Our mission is built on three core principles:
-                        </p>
-                        <ol class="about-text" style="padding-left: 1.5rem; line-height: 2;">
-                            <li><strong>Transparency:</strong> We believe in honest pricing, real guest reviews, and clear information so you can make informed decisions.</li>
-                            <li><strong>Reliability:</strong> Every booking is backed by our commitment to secure transactions, instant confirmations, and 24/7 customer support.</li>
-                            <li><strong>Value:</strong> We negotiate the best rates with our partner hotels and pass the savings directly to you.</li>
-                        </ol>
-                    </div>
-
-                    <div id="audience">
-                        <h2 class="about-section-title">Who We Serve</h2>
-                        <p class="about-text">
-                            Booklify caters to a diverse community of travelers:
-                        </p>
-                        <ul class="about-text" style="padding-left: 1.5rem; line-height: 2;">
-                            <li><strong>Leisure Travelers:</strong> Families, couples, and solo adventurers exploring the beauty of Oman</li>
-                            <li><strong>Business Professionals:</strong> Corporate travelers seeking convenient, well-located accommodations</li>
-                            <li><strong>Event Attendees:</strong> Guests attending conferences, weddings, and special occasions</li>
-                            <li><strong>International Visitors:</strong> Tourists discovering Oman's rich culture and stunning landscapes</li>
-                        </ul>
-                        <p class="about-text">
-                            We also work closely with hotel partners across Oman, helping them reach more guests and manage their bookings efficiently. Our platform provides hotels with powerful tools to showcase their properties, manage availability, and grow their business.
-                        </p>
-                    </div>
-
-                    <div id="values">
-                        <h2 class="about-section-title">Why Choose Booklify</h2>
-                        <p class="about-text">
-                            <strong>Best Price Guarantee:</strong> We're confident we offer the best rates. If you find a lower price elsewhere, we'll match it.
-                        </p>
-                        <p class="about-text">
-                            <strong>Verified Reviews:</strong> Every review on our platform comes from verified guests who have actually stayed at the property. This ensures you get authentic, trustworthy information.
-                        </p>
-                        <p class="about-text">
-                            <strong>24/7 Support:</strong> Our customer service team is available around the clock to assist with bookings, changes, cancellations, or any questions you may have.
-                        </p>
-                        <p class="about-text">
-                            <strong>Secure Booking:</strong> Your personal and payment information is protected with industry-leading encryption and security measures.
-                        </p>
-                        <p class="about-text">
-                            <strong>Local Expertise:</strong> As an Oman-based company, we have deep knowledge of local hotels, destinations, and travel experiences. We're here to help you discover the best of what Oman has to offer.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Right Side: Image -->
-                <div class="about-image-side">
-                    <img src="images/callusimg.jpg" alt="Team Collaboration" class="about-team-image" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
                 </div>
             </div>
         </section>
 
-        <!-- Services Table -->
-        <section class="about-content-section">
-            <div class="about-content-wrapper">
-                <div class="about-text-content">
-                    <h2 class="about-section-title">Our Services & Features</h2>
-                    <table class="data-table">
-                        <thead>
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="display-6 fw-bold mb-4 text-center">Our Services & Features</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead class="table-primary">
                             <tr>
                                 <th>Service Category</th>
                                 <th>Features</th>
@@ -365,12 +182,14 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
-            <p>&copy; 2025 booklify.com. All rights reserved.</p>
-            <p>Department of Computer Science, Sultan Qaboos University</p>
-            <p>COMP3700 - Introduction to Web Computing - Fall 2025</p>
+            <p class="mb-1">&copy; 2025 booklify.com. All rights reserved.</p>
+            <p class="mb-1">Department of Computer Science, Sultan Qaboos University</p>
+            <p class="mb-0">COMP3700 - Introduction to Web Computing - Fall 2025</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
