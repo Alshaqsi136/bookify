@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booklify - Find Your Perfect Stay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/booklify.png" alt="Booklify Logo" class="me-2" style="height: 48px;">
+                <span class="fw-bold text-primary">Booklify</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-primary ms-2" href="booking.html">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="questionnaire.html">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calculate.html">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="funpage.html">Fun Page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div id="hero" class="text-center text-white d-flex flex-column justify-content-center align-items-center" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('images/fort.png'); background-size: cover; background-position: center; min-height: 500px; padding: 4rem 2rem; margin-bottom: 2rem;">
+            <h1 class="display-3 fw-bold mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Find Your Perfect Stay</h1>
+            <p class="fs-4">Discover amazing hotels and book your dream vacation today</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <section class="bg-primary text-white text-center p-5 rounded mb-4">
+                        <h2 class="display-5 fw-bold mb-3">Welcome to Booklify</h2>
+                        <p class="lead">Your trusted partner for finding the best hotel accommodations worldwide. We offer competitive prices, excellent customer service, and a wide selection of hotels to suit every budget and preference.</p>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="text-center mb-4">Why Choose Us?</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-currency-dollar fs-1 text-primary mb-3"></i>
+                                        <h3 class="card-title">Best Prices</h3>
+                                        <p class="card-text">We guarantee the best prices on all our hotel bookings. Price match available!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
+                                        <h3 class="card-title">Secure Booking</h3>
+                                        <p class="card-text">Your personal information and payment details are protected with industry-standard encryption.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-headset fs-1 text-primary mb-3"></i>
+                                        <h3 class="card-title">24/7 Support</h3>
+                                        <p class="card-text">Our customer support team is available around the clock to assist you with any queries.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-star-fill fs-1 text-primary mb-3"></i>
+                                        <h3 class="card-title">Verified Reviews</h3>
+                                        <p class="card-text">Read authentic reviews from verified guests to make informed decisions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="text-center mb-4">Featured Properties</h2>
+                        <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#propertyCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#propertyCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#propertyCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner rounded">
+                                <div class="carousel-item active">
+                                    <img src="images/hotal1.png" class="d-block w-100" alt="Salalah Rotana Resort" style="height: 400px; object-fit: cover;">
+                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                                        <h5>Salalah Rotana Resort</h5>
+                                        <p>Beachfront luxury in Salalah</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/hotal2.png" class="d-block w-100" alt="Anantara Al Jabal Al Akhdar Resort" style="height: 400px; object-fit: cover;">
+                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                                        <h5>Anantara Al Jabal Al Akhdar Resort</h5>
+                                        <p>Mountain retreat in Nizwa</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/hotal3.png" class="d-block w-100" alt="Al Bustan Palace" style="height: 400px; object-fit: cover;">
+                                    <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
+                                        <h5>Al Bustan Palace</h5>
+                                        <p>Luxury resort in Muscat</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="text-center mb-4">Our Statistics</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card text-center shadow-sm">
+                                    <div class="card-body">
+                                        <div class="display-4 fw-bold text-primary mb-2">250+</div>
+                                        <p class="card-text">Hotels in Oman</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card text-center shadow-sm">
+                                    <div class="card-body">
+                                        <div class="display-4 fw-bold text-primary mb-2">45K+</div>
+                                        <p class="card-text">Happy Customers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card text-center shadow-sm">
+                                    <div class="card-body">
+                                        <div class="display-4 fw-bold text-primary mb-2">15+</div>
+                                        <p class="card-text">Cities in Oman</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="card text-center shadow-sm">
+                                    <div class="card-body">
+                                        <div class="display-4 fw-bold text-primary mb-2">4.6★</div>
+                                        <p class="card-text">Average Rating</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-5">
+                        <h2 class="mb-4">Popular Destinations in Oman</h2>
+                        
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">Add New Destination</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="addDestinationForm" class="row g-3">
+                                    <div class="col-md-3">
+                                        <label for="destName" class="form-label">Destination</label>
+                                        <input type="text" class="form-control" id="destName" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="destCity" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="destCity" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="destRegion" class="form-label">Region</label>
+                                        <input type="text" class="form-control" id="destRegion" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="destTime" class="form-label">Best Time</label>
+                                        <input type="text" class="form-control" id="destTime" required>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="destHotels" class="form-label">Hotels</label>
+                                        <input type="number" class="form-control" id="destHotels" required>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="destResorts" class="form-label">Resorts</label>
+                                        <input type="number" class="form-control" id="destResorts" required>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <label for="destPrice" class="form-label">Price (OMR)</label>
+                                        <input type="text" class="form-control" id="destPrice" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Add Destination</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">Search Destinations</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="searchDestinationForm" class="row g-3">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="searchDest" placeholder="Search by destination, city, or region...">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="btn btn-info text-white">Search</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-secondary" onclick="displayAllDestinations()">Show All</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-bordered" id="destinationsTable">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th rowspan="2">Destination</th>
+                                        <th colspan="2">Location Details</th>
+                                        <th rowspan="2">Best Time to Visit</th>
+                                        <th colspan="2">Accommodation</th>
+                                        <th rowspan="2">Average Price (OMR/night)</th>
+                                    </tr>
+                                    <tr>
+                                        <th>City</th>
+                                        <th>Region</th>
+                                        <th>Hotels</th>
+                                        <th>Resorts</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="destinationsTableBody">
+                                </tbody>
+                                <tfoot class="table-secondary">
+                                    <tr>
+                                        <td colspan="7" class="text-center fw-bold">
+                                            Discover the beauty of Oman across these amazing destinations. Prices vary by season and hotel category.
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-primary text-white position-relative overflow-hidden" style="height: 50px; line-height: 50px;">
+            <div id="scrollingBanner" class="position-absolute" style="white-space: nowrap; animation: scrollBanner 30s linear infinite; font-size: 1.1rem; font-weight: 500;">
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1">&copy; 2025 booklify.com. All rights reserved.</p>
+            <p class="mb-1">Department of Computer Science, Sultan Qaboos University</p>
+            <p class="mb-0">COMP3700 - Introduction to Web Computing - Fall 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/destinations.js"></script>
+    <script src="js/banner.js"></script>
+
+    <style>
+        @keyframes scrollBanner {
+            0% { 
+                left: 100%;
+                transform: translateX(0);
+            }
+            100% { 
+                left: -100%;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</body>
+</html>
