@@ -94,11 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // --------------------------
 
     form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop default submission
+        e.preventDefault();
         
-        let isValid = true; // Track overall validation result
+        let isValid = true;
 
-        // Validate each field on submit
         if (!validateName(nameInput.value)) {
             nameInput.classList.add('is-invalid');
             isValid = false;
@@ -127,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
             messageInput.classList.add('is-valid');
         }
 
-        // Validate radio button sections
         const satisfaction = document.querySelector('input[name="satisfaction"]:checked');
         if (!satisfaction) {
             isValid = false;
@@ -146,23 +144,15 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please tell us if you would recommend Booklify.');
         }
 
-        // If everything is valid — show success message
         if (isValid) {
-            alert('Thank you for your feedback! Your response has been submitted successfully.');
-
-            // Reset the form visually and logically
-            form.reset();
-            form.querySelectorAll('.is-valid, .is-invalid')
-                .forEach(el => el.classList.remove('is-valid', 'is-invalid'));
-        
+            form.submit();
         } else {
-            // Scroll to the first invalid element for user convenience
             const firstInvalid = form.querySelector('.is-invalid');
             if (firstInvalid) {
                 firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
-        form.classList.add('was-validated'); // Add Bootstrap validation styling
+        form.classList.add('was-validated');
     });
 });
